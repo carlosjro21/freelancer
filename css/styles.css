@@ -1,0 +1,308 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --gris-claro: #DFE9F3;
+
+    
+}
+
+html{
+    font-size: 62.5%; /* hack para calcular px a rem de forma facil y hacer que un 1 rem aprox 10px*/
+    box-sizing: border-box;/* Incluye padding y border dentro del tamaño */
+
+    scroll-snap-type: y mandatory; /* Activa Scroll Snap vertical y obliga al scroll a ajustarse a los puntos de snap definidos */
+}
+
+/*Scroll Snap*/
+.navegacion-principal,
+.servicios,
+.footer {
+    scroll-snap-align: center; /* Al hacer snap, alinea el elemento al centro */
+    scroll-snap-stop: always; /* Evita saltarse este punto de snap al atravesarlo */
+}
+/* Aplica border-box a todos los elementos y pseudo-elementos */
+*, *::before, *::after {
+    box-sizing: inherit; /* Hereda el box-sizing de su elemento padre */
+}
+
+body{
+    font-size: 16px;/* Tambien se usa para establecer el tamaño de fuente base y body si o si usara 16 px pero la raiz usara el otro hack pero ambos se complementa para que sea vea el efecto del hack */
+
+    font-family: 'Krub', sans-serif;
+
+    background-image: linear-gradient(to top, var(--gris-claro) 30%, var(--blanco) 100%);
+    /* Degradado de abajo hacia arriba: azul claro → blanco */
+}
+
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h1{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+/*Aplicar este atributo al span de la clase titulo que esta en H1 del header*/
+.titulo span{
+    font-size: 2rem;
+}
+
+/*Contenedor que se usara en varias secciones*/
+.contenedor {
+    max-width: 110rem; /*Se uso para establecer un ancho máximo para el contenedor */
+    margin: 0 auto;/*Se uso para centrar el contenedor el auto ayuda ajustarse de acuerdo el tamaño de la pantalla */
+}
+
+/* Sombra para el contenedor hecho con cssmatic */
+
+.sombra{
+    
+    -webkit-box-shadow: 0px 6px 26px 20px rgba(32,36,42,0.39);
+    -moz-box-shadow: 0px 6px 26px 20px rgba(32,36,42,0.39);
+    box-shadow: 0px 6px 26px 20px rgba(32,36,42,0.39);
+
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+
+    width: 90%;
+}
+
+
+/** Boton de llamada a la accion */
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    width: 90%;
+    text-align: center;
+
+    border: none;/* Elimina el borde predeterminado del botón pero solo al del formulario, aunque el boton de contactar no sea de tipo submit y no tenga border no afecta que coloquemos ese atributo*/
+}
+@media (min-width: 780px){
+    .boton{
+        width: auto; /* Ajusta el ancho del botón automáticamente en pantallas más grandes */
+    }
+}
+
+.boton:hover{
+    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el botón pero al del enviar de tipo submit  ya que no lo tenia. El de contactar lo trae predeterminado*/
+}
+
+/*Utilidades*/
+.w-sm-100{
+    width: 100%;
+}
+@media (min-width: 768px){
+    .w-sm-100{
+        width:auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+/* Navegacion principal */
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/*Enalces de la navegacion principal*/
+.navegacion-principal a {
+    width: 100%;
+    text-align: center;
+
+    padding: 1rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.navegacion-principal a:hover{
+    color: var(--oscuro);
+    background-color: var(--primario);
+}
+/*Media Quey de la navegacion principal y sus enlaces */
+@media (min-width: 768px){
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navegacion-principal a {
+        width: auto;
+    }
+}
+
+/*Imagen hero con su Contenido*/
+.hero {
+    background-image: url(../img/hero.jpg); /* Imagen de fondo del hero */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Cubre todo el hero manteniendo la proporción */
+
+    height: 450px; /* Altura del hero */
+    position: relative; /* Referencia para posicionar al hijo absolute */
+    margin-bottom: 2rem; /* Espacio inferior del hero */
+}
+
+.contenido-hero {
+    /* Capa oscura transparente que se superpone sobre la imagen */
+    position: absolute; /* Permite superponer esta capa sobre el hero */
+
+    background-color: rgba(0, 0, 0, .7); /* Version Anterior para dar color y transparencia*/
+
+    /* Fondo negro con 70% de opacidad para oscurecer la imagen */
+    background-color: rgb(0 0 0 / 70%);
+
+    width: 100%; /* Ocupa todo el ancho del hero */
+    height: 100%; /* Ocupa todo el alto del hero */
+
+    /*Centrar el contenido de Hero*/
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Servicios y su distribucion*/
+
+@media (min-width: 768px){
+    .servicios {
+        display: grid; /* Activa CSS Grid en el contenedor */
+
+        /* 3 columnas iguales. repeat evita escribir "1fr" tres veces */
+        grid-template-columns: repeat(3, 1fr);
+
+        /* OTRA FORMA: 3 columnas de aproximadamente 33.3% cada una */
+        /* grid-template-columns: 33.3% 33.3% 33.3%; */
+
+        /* OTRA FORMA: 3 columnas iguales usando fr (fracción del espacio disponible) */
+        /* grid-template-columns: 1fr 1fr 1fr; */
+
+        column-gap: 1rem;
+    }
+}
+
+.servicio {
+    display: flex; /* Organiza el contenido del servicio con Flexbox */
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.servicio h3 {
+    color: var(--secundario); /* Usa el color secundario para los títulos */
+}
+
+.servicio p {
+    line-height: 2; /* Aumenta el espacio entre líneas del texto */
+    text-align: center; /* Centra el texto del párrafo */
+}
+
+.servicio .iconos {
+    height: 15rem; /* Alto del contenedor de iconos */
+    width: 15rem; /* Ancho del contenedor de iconos */
+    background-color: var(--primario); /* Fondo con el color primario */
+    border-radius: 50%; /* Convierte el contenedor cuadrado en un círculo */
+
+    display: flex; /* Usa Flexbox para organizar los iconos internos */
+    justify-content: space-evenly; /* Reparte los iconos horizontalmente con espacios iguales */
+    align-items: center; /* Centra los iconos verticalmente */
+}
+
+/* Contacto */
+.formulario {
+    background-color: var(--gris); /* Fondo del formulario */
+
+    /* Usa 60rem o el 100% disponible, el que sea menor */
+    width: min(60rem, 100%);
+
+    margin: 0 auto; /* Centra horizontalmente el formulario */
+    padding: 2rem; /* Espacio interno */
+    border-radius: 1rem; /* Redondea las esquinas */
+}
+
+.formulario fieldset {
+    border: none; /* Elimina el borde predeterminado del fieldset */
+}
+
+.formulario legend {
+    width: 100%; /* Ocupa todo el ancho del fieldset */
+    text-align: center; /* Centra el texto del legend */
+    font-size: 1.5rem; /* Tamaño de fuente del legend */
+    margin-bottom: 2rem; /* Espacio inferior */
+    font-weight: bold; /* Negrita */
+    color: var(--primario); /* Color secundario */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+}
+@media (min-width: 768px){
+    .contenedor-campo{
+        display:grid;
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+        grid-template-rows:auto auto 20rem;
+        column-gap: 2rem; /* Espacio entre columnas */
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1/3;
+    }
+}
+
+
+.campo{
+    margin-bottom: 2rem; /* Espacio inferior entre campos */
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.campo textarea{
+    height:15rem; /* Altura del textarea */
+}
+
+.input-text{
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 1rem; /* Espacio interno */
+    border-radius: .5rem; /* Redondea las esquinas */
+    border: none; /* Elimina el borde predeterminado */
+}
+
+.footer{
+    text-align:center;
+
+}
