@@ -27,6 +27,12 @@ Durante su desarrollo puse en práctica conceptos fundamentales de HTML y CSS, i
 - Adaptación para diferentes tamaños de pantalla
 - Efecto Scroll Snap en distintas secciones
 
+## Demo
+
+Puedes ver el proyecto funcionando en GitHub Pages:
+
+https://carlosjro21.github.io/freelancer/
+
 ## Autor
 
 Carlos Rangel
